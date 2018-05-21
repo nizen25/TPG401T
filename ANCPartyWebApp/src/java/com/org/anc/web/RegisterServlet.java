@@ -7,6 +7,7 @@ package com.org.anc.web;
 
 import com.org.anc.client.ANCRestClient;
 import java.io.IOException;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -39,9 +40,10 @@ public class RegisterServlet extends HttpServlet {
         final String area = request.getParameter("area");
         final String username = request.getParameter("username");
         final String password = request.getParameter("password");
-        
+        System.out.println("PASS: " + password);
         try {
             final String memberJSON = generateMemberJSON(id, name, surname, cells, street, code, area, emails, username, password);
+            System.out.println("JSON: " + memberJSON);
             client.create_JSON(memberJSON);
             final RequestDispatcher dispatcher = request.getRequestDispatcher("registration_success.jsp");
             dispatcher.forward(request, response);
@@ -55,34 +57,32 @@ public class RegisterServlet extends HttpServlet {
         member.put("id", id);
         member.put("name", name);
         member.put("surname", surname);
+        member.put("username", username);
+        member.put("password", password);
+        member.put("historyDate", new Date().toString());
         
         JSONObject address = new JSONObject();
         address.put("street", street);
         address.put("area", area);
         address.put("code", code);
+        member.put("address", address);
         
         JSONArray cells = new JSONArray();
-        
-        for (int i = 0; i < cellNos.length; i++) {
-            String cellNo = cellNos[i];
+        for (String cellNo : cellNos) {
             JSONObject cell = new JSONObject();
             cell.put("cellNo", cellNo);
             cells.put(cell);
         }
-        
         member.put("cells", cells);
         
         JSONArray emailAddresses = new JSONArray();
-        
-        for (int i = 0; i < emails.length; i++) {
-            String emailId = emails[i];
+        for (String emailId : emails) {
             JSONObject emailObj = new JSONObject();
             emailObj.put("emailId", emailId);
             emailAddresses.put(emailObj);
         }
-        
         member.put("emails", emailAddresses);
-        
+        System.out.println("MEMBER: " + member);
         return member.toString();
     }
 

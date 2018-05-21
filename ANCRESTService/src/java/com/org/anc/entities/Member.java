@@ -46,7 +46,7 @@ public class Member implements Serializable {
     
     private String username;
     private String historyDate;
-    private String passwod;
+    private String password;
     
     public Member() {
     }
@@ -117,12 +117,12 @@ public class Member implements Serializable {
         this.historyDate = historyDate;
     }
 
-    public String getPasswod() {
-        return passwod;
+    public String getPassword() {
+        return password;
     }
 
-    public void setPasswod(String passwod) {
-        this.passwod = passwod;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override
@@ -136,7 +136,7 @@ public class Member implements Serializable {
         hash = 53 * hash + Objects.hashCode(this.address);
         hash = 53 * hash + Objects.hashCode(this.username);
         hash = 53 * hash + Objects.hashCode(this.historyDate);
-        hash = 53 * hash + Objects.hashCode(this.passwod);
+        hash = 53 * hash + Objects.hashCode(this.password);
         return hash;
     }
 
@@ -164,7 +164,7 @@ public class Member implements Serializable {
         if (!Objects.equals(this.historyDate, other.historyDate)) {
             return false;
         }
-        if (!Objects.equals(this.passwod, other.passwod)) {
+        if (!Objects.equals(this.password, other.password)) {
             return false;
         }
         if (!Objects.equals(this.id, other.id)) {
@@ -184,7 +184,7 @@ public class Member implements Serializable {
 
     @Override
     public String toString() {
-        return "Member{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", emails=" + emails + ", cells=" + cells + ", address=" + address + ", username=" + username + ", historyDate=" + historyDate + ", passwod=" + passwod + '}';
+        return "Member{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", emails=" + emails + ", cells=" + cells + ", address=" + address + ", username=" + username + ", historyDate=" + historyDate + ", passwod=" + password + '}';
     }
     
 }

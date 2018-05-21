@@ -51,6 +51,7 @@ public class MemberFacadeREST extends AbstractFacade<Member> {
     @Override
     @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
     public void create(Member entity) {
+        System.out.println("ENTITY: " + entity);
         super.create(entity);
         sendEmail(entity.getEmails().get(0));
     }
