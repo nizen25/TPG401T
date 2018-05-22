@@ -15,6 +15,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -23,6 +24,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @Entity
 @XmlRootElement
+@Table(name = "Member")
 public class Member implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,15 +46,24 @@ public class Member implements Serializable {
     @JoinColumn(name = "addr_fk")
     private Address address;
     
-    private String username;
     private String historyDate;
-    private String password;
     
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinColumn(name = "login_fk")
+    private Login login;
     public Member() {
     }
 
     public Long getId() {
         return id;
+    }
+
+    public Login getLogin() {
+        return login;
+    }
+
+    public void setLogin(Login login) {
+        this.login = login;
     }
 
     public String getIdNumber() {
@@ -107,14 +118,6 @@ public class Member implements Serializable {
         this.address = address;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
     public String getHistoryDate() {
         return historyDate;
     }
@@ -123,26 +126,18 @@ public class Member implements Serializable {
         this.historyDate = historyDate;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + Objects.hashCode(this.id);
-        hash = 53 * hash + Objects.hashCode(this.name);
-        hash = 53 * hash + Objects.hashCode(this.surname);
-        hash = 53 * hash + Objects.hashCode(this.emails);
-        hash = 53 * hash + Objects.hashCode(this.cells);
-        hash = 53 * hash + Objects.hashCode(this.address);
-        hash = 53 * hash + Objects.hashCode(this.username);
-        hash = 53 * hash + Objects.hashCode(this.historyDate);
-        hash = 53 * hash + Objects.hashCode(this.password);
+        int hash = 3;
+        hash = 41 * hash + Objects.hashCode(this.id);
+        hash = 41 * hash + Objects.hashCode(this.name);
+        hash = 41 * hash + Objects.hashCode(this.surname);
+        hash = 41 * hash + Objects.hashCode(this.idNumber);
+        hash = 41 * hash + Objects.hashCode(this.emails);
+        hash = 41 * hash + Objects.hashCode(this.cells);
+        hash = 41 * hash + Objects.hashCode(this.address);
+        hash = 41 * hash + Objects.hashCode(this.historyDate);
+        hash = 41 * hash + Objects.hashCode(this.login);
         return hash;
     }
 
@@ -164,13 +159,10 @@ public class Member implements Serializable {
         if (!Objects.equals(this.surname, other.surname)) {
             return false;
         }
-        if (!Objects.equals(this.username, other.username)) {
+        if (!Objects.equals(this.idNumber, other.idNumber)) {
             return false;
         }
         if (!Objects.equals(this.historyDate, other.historyDate)) {
-            return false;
-        }
-        if (!Objects.equals(this.password, other.password)) {
             return false;
         }
         if (!Objects.equals(this.id, other.id)) {
@@ -185,12 +177,15 @@ public class Member implements Serializable {
         if (!Objects.equals(this.address, other.address)) {
             return false;
         }
+        if (!Objects.equals(this.login, other.login)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Member{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", emails=" + emails + ", cells=" + cells + ", address=" + address + ", username=" + username + ", historyDate=" + historyDate + ", passwod=" + password + '}';
+        return "Member{" + "id=" + id + ", name=" + name + ", surname=" + surname + ", idNumber=" + idNumber + ", emails=" + emails + ", cells=" + cells + ", address=" + address + ", historyDate=" + historyDate + ", login=" + login + '}';
     }
     
 }

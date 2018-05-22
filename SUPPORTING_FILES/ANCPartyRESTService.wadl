@@ -86,13 +86,13 @@
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="cell" mediaType="application/json"/>
                     </response>
                 </method>
-                <method id="remove" name="DELETE"/>
                 <method id="edit" name="PUT">
                     <request>
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="cell" mediaType="application/xml"/>
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="cell" mediaType="application/json"/>
                     </request>
                 </method>
+                <method id="remove" name="DELETE"/>
                 <method id="apply" name="OPTIONS">
                     <request>
                         <representation mediaType="*/*"/>
@@ -151,17 +151,17 @@
             </resource>
         </resource>
         <resource path="ANCPartyRESTService">
-            <method id="findAll" name="GET">
-                <response>
-                    <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/xml"/>
-                    <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/json"/>
-                </response>
-            </method>
             <method id="create" name="POST">
                 <request>
                     <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/xml"/>
                     <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/json"/>
                 </request>
+            </method>
+            <method id="findAll" name="GET">
+                <response>
+                    <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/xml"/>
+                    <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/json"/>
+                </response>
             </method>
             <method id="apply" name="OPTIONS">
                 <request>
@@ -187,12 +187,21 @@
                     <representation mediaType="*/*"/>
                 </response>
             </method>
-            <resource path="count">
-                <method id="countREST" name="GET">
+            <resource path="{id}">
+                <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="id" style="template" type="xs:long"/>
+                <method id="find" name="GET">
                     <response>
-                        <representation mediaType="text/plain"/>
+                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/xml"/>
+                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/json"/>
                     </response>
                 </method>
+                <method id="edit" name="PUT">
+                    <request>
+                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/xml"/>
+                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/json"/>
+                    </request>
+                </method>
+                <method id="remove" name="DELETE"/>
                 <method id="apply" name="OPTIONS">
                     <request>
                         <representation mediaType="*/*"/>
@@ -218,21 +227,12 @@
                     </response>
                 </method>
             </resource>
-            <resource path="{id}">
-                <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="id" style="template" type="xs:long"/>
-                <method id="edit" name="PUT">
-                    <request>
-                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/xml"/>
-                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/json"/>
-                    </request>
-                </method>
-                <method id="find" name="GET">
+            <resource path="count">
+                <method id="countREST" name="GET">
                     <response>
-                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/xml"/>
-                        <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/json"/>
+                        <representation mediaType="text/plain"/>
                     </response>
                 </method>
-                <method id="remove" name="DELETE"/>
                 <method id="apply" name="OPTIONS">
                     <request>
                         <representation mediaType="*/*"/>
@@ -265,6 +265,40 @@
                     <response>
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/xml"/>
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="member" mediaType="application/json"/>
+                    </response>
+                </method>
+                <method id="apply" name="OPTIONS">
+                    <request>
+                        <representation mediaType="*/*"/>
+                    </request>
+                    <response>
+                        <representation mediaType="application/vnd.sun.wadl+xml"/>
+                    </response>
+                </method>
+                <method id="apply" name="OPTIONS">
+                    <request>
+                        <representation mediaType="*/*"/>
+                    </request>
+                    <response>
+                        <representation mediaType="text/plain"/>
+                    </response>
+                </method>
+                <method id="apply" name="OPTIONS">
+                    <request>
+                        <representation mediaType="*/*"/>
+                    </request>
+                    <response>
+                        <representation mediaType="*/*"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="login/{username}/{password}">
+                <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="password" style="template" type="xs:string"/>
+                <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="username" style="template" type="xs:string"/>
+                <method id="login" name="GET">
+                    <response>
+                        <representation mediaType="text/plain"/>
+                        <representation mediaType="application/json"/>
                     </response>
                 </method>
                 <method id="apply" name="OPTIONS">
@@ -370,6 +404,37 @@
                     </response>
                 </method>
             </resource>
+            <resource path="count">
+                <method id="countREST" name="GET">
+                    <response>
+                        <representation mediaType="text/plain"/>
+                    </response>
+                </method>
+                <method id="apply" name="OPTIONS">
+                    <request>
+                        <representation mediaType="*/*"/>
+                    </request>
+                    <response>
+                        <representation mediaType="application/vnd.sun.wadl+xml"/>
+                    </response>
+                </method>
+                <method id="apply" name="OPTIONS">
+                    <request>
+                        <representation mediaType="*/*"/>
+                    </request>
+                    <response>
+                        <representation mediaType="text/plain"/>
+                    </response>
+                </method>
+                <method id="apply" name="OPTIONS">
+                    <request>
+                        <representation mediaType="*/*"/>
+                    </request>
+                    <response>
+                        <representation mediaType="*/*"/>
+                    </response>
+                </method>
+            </resource>
             <resource path="{from}/{to}">
                 <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="from" style="template" type="xs:int"/>
                 <param xmlns:xs="http://www.w3.org/2001/XMLSchema" name="to" style="template" type="xs:int"/>
@@ -404,50 +469,19 @@
                     </response>
                 </method>
             </resource>
-            <resource path="count">
-                <method id="countREST" name="GET">
-                    <response>
-                        <representation mediaType="text/plain"/>
-                    </response>
-                </method>
-                <method id="apply" name="OPTIONS">
-                    <request>
-                        <representation mediaType="*/*"/>
-                    </request>
-                    <response>
-                        <representation mediaType="application/vnd.sun.wadl+xml"/>
-                    </response>
-                </method>
-                <method id="apply" name="OPTIONS">
-                    <request>
-                        <representation mediaType="*/*"/>
-                    </request>
-                    <response>
-                        <representation mediaType="text/plain"/>
-                    </response>
-                </method>
-                <method id="apply" name="OPTIONS">
-                    <request>
-                        <representation mediaType="*/*"/>
-                    </request>
-                    <response>
-                        <representation mediaType="*/*"/>
-                    </response>
-                </method>
-            </resource>
         </resource>
         <resource path="com.org.anc.entities.address">
-            <method id="create" name="POST">
-                <request>
-                    <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/xml"/>
-                    <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/json"/>
-                </request>
-            </method>
             <method id="findAll" name="GET">
                 <response>
                     <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/xml"/>
                     <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/json"/>
                 </response>
+            </method>
+            <method id="create" name="POST">
+                <request>
+                    <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/xml"/>
+                    <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/json"/>
+                </request>
             </method>
             <method id="apply" name="OPTIONS">
                 <request>
@@ -481,12 +515,43 @@
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/json"/>
                     </response>
                 </method>
-                <method id="remove" name="DELETE"/>
                 <method id="edit" name="PUT">
                     <request>
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/xml"/>
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/json"/>
                     </request>
+                </method>
+                <method id="remove" name="DELETE"/>
+                <method id="apply" name="OPTIONS">
+                    <request>
+                        <representation mediaType="*/*"/>
+                    </request>
+                    <response>
+                        <representation mediaType="application/vnd.sun.wadl+xml"/>
+                    </response>
+                </method>
+                <method id="apply" name="OPTIONS">
+                    <request>
+                        <representation mediaType="*/*"/>
+                    </request>
+                    <response>
+                        <representation mediaType="text/plain"/>
+                    </response>
+                </method>
+                <method id="apply" name="OPTIONS">
+                    <request>
+                        <representation mediaType="*/*"/>
+                    </request>
+                    <response>
+                        <representation mediaType="*/*"/>
+                    </response>
+                </method>
+            </resource>
+            <resource path="count">
+                <method id="countREST" name="GET">
+                    <response>
+                        <representation mediaType="text/plain"/>
+                    </response>
                 </method>
                 <method id="apply" name="OPTIONS">
                     <request>
@@ -520,37 +585,6 @@
                     <response>
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/xml"/>
                         <ns2:representation xmlns:ns2="http://wadl.dev.java.net/2009/02" xmlns="" element="address" mediaType="application/json"/>
-                    </response>
-                </method>
-                <method id="apply" name="OPTIONS">
-                    <request>
-                        <representation mediaType="*/*"/>
-                    </request>
-                    <response>
-                        <representation mediaType="application/vnd.sun.wadl+xml"/>
-                    </response>
-                </method>
-                <method id="apply" name="OPTIONS">
-                    <request>
-                        <representation mediaType="*/*"/>
-                    </request>
-                    <response>
-                        <representation mediaType="text/plain"/>
-                    </response>
-                </method>
-                <method id="apply" name="OPTIONS">
-                    <request>
-                        <representation mediaType="*/*"/>
-                    </request>
-                    <response>
-                        <representation mediaType="*/*"/>
-                    </response>
-                </method>
-            </resource>
-            <resource path="count">
-                <method id="countREST" name="GET">
-                    <response>
-                        <representation mediaType="text/plain"/>
                     </response>
                 </method>
                 <method id="apply" name="OPTIONS">
