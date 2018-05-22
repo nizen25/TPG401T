@@ -26,7 +26,7 @@ public class ANCRestClient {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/ANCRESTService/webresources";
+    private static final String BASE_URI = "http://localhost:8080/ANCPartyRESTService/webresources";
 
     public ANCRestClient() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
