@@ -31,8 +31,17 @@ public class Login implements Serializable {
     private Long id;
     private String username;
     private String password;
+    private String role;
 
     public Login() {
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Long getId() {

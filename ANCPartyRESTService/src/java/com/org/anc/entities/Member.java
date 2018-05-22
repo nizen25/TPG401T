@@ -33,6 +33,8 @@ public class Member implements Serializable {
     private String name;
     private String surname;
     private String idNumber;
+    private String isNominee;
+    private String isDelegate; 
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "email_fk")
@@ -56,6 +58,22 @@ public class Member implements Serializable {
 
     public Long getId() {
         return id;
+    }
+
+    public String getIsNominee() {
+        return isNominee;
+    }
+
+    public void setIsNominee(String isNominee) {
+        this.isNominee = isNominee;
+    }
+
+    public String getIsDelegate() {
+        return isDelegate;
+    }
+
+    public void setIsDelegate(String isDelegate) {
+        this.isDelegate = isDelegate;
     }
 
     public Login getLogin() {
