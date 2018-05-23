@@ -35,6 +35,7 @@ public class Member implements Serializable {
     private String idNumber;
     private String isNominee;
     private String isDelegate; 
+    private int nomitationCount;
     
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "email_fk")
@@ -66,6 +67,14 @@ public class Member implements Serializable {
 
     public void setIsNominee(String isNominee) {
         this.isNominee = isNominee;
+    }
+
+    public int getNomitationCount() {
+        return nomitationCount;
+    }
+
+    public void setNomitationCount(int nomitationCount) {
+        this.nomitationCount = nomitationCount;
     }
 
     public String getIsDelegate() {

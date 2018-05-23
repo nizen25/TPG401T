@@ -5,7 +5,6 @@
  */
 package com.org.anc.services;
 
-import com.org.anc.entities.Email;
 import com.org.anc.entities.Login;
 import com.org.anc.entities.Member;
 import com.sun.net.ssl.internal.ssl.Provider;
@@ -116,7 +115,7 @@ public class MemberFacadeREST extends AbstractFacade<Member> {
         final String pass = "Syd639@nizen";
         final String subject = "Account Confirmation";
         final String body = "Hello, this is confirmation that your account has successfully been registered.\nYour username is: " + member.getId() + 
-                "\nThis is also used as your membership number\nUse it with the password you registered to login in future."
+                "\nThis is also used as your membership number.\nUse it with the password you registered to login in future."
                 + "\n\nBest regards,\nANC Admins.";
         final boolean sessionDebug = false;
         

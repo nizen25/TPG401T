@@ -65,9 +65,12 @@ public abstract class AbstractFacade<T> {
     
     public Login login(final String username, final String password){
         final Member member = (Member) find(Long.parseLong(username));
-        final Login loginObject = member.getLogin();
-        if (loginObject != null && loginObject.getPassword().equals(password)) {
-            return loginObject;    
+        Login loginObject;
+        if (member != null) {
+            loginObject = member.getLogin();
+            if (loginObject != null && loginObject.getPassword().equals(password)) {
+                return loginObject;
+            }
         }
         return null;
     }
