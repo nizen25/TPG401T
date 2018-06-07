@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <servlet>
+        <servlet-name>ApplyServlet</servlet-name>
+        <servlet-class>org.com.bank.web.ApplyServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AllCustomersServlet</servlet-name>
+        <servlet-class>org.com.bank.web.AllCustomersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FindCustomerServlet</servlet-name>
+        <servlet-class>org.com.bank.web.FindCustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ApplyServlet</servlet-name>
+        <url-pattern>/ApplyServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllCustomersServlet</servlet-name>
+        <url-pattern>/AllCustomersServlet.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FindCustomerServlet</servlet-name>
+        <url-pattern>/FindCustomerServlet.do</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+</web-app>

@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI at http://jax-ws.dev.java.net. RI's version is Metro/2.3 (tags/2.3-7528; 2013-04-29T19:34:10+0000) JAXWS-RI/2.2.8 JAXWS/2.2 svn-revision#unknown. --><xs:schema xmlns:tns="http://jws.union.com.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://jws.union.com.org/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="applicant" type="tns:applicant"/>
+
+<xs:element name="createApplicant" type="tns:createApplicant"/>
+
+<xs:element name="createApplicantResponse" type="tns:createApplicantResponse"/>
+
+<xs:element name="editApplicant" type="tns:editApplicant"/>
+
+<xs:element name="editApplicantResponse" type="tns:editApplicantResponse"/>
+
+<xs:element name="findAllApplicants" type="tns:findAllApplicants"/>
+
+<xs:element name="findAllApplicantsResponse" type="tns:findAllApplicantsResponse"/>
+
+<xs:element name="findApplicant" type="tns:findApplicant"/>
+
+<xs:element name="findApplicantResponse" type="tns:findApplicantResponse"/>
+
+<xs:element name="getStatus" type="tns:getStatus"/>
+
+<xs:element name="getStatusResponse" type="tns:getStatusResponse"/>
+
+<xs:element name="removeApplicant" type="tns:removeApplicant"/>
+
+<xs:element name="removeApplicantResponse" type="tns:removeApplicantResponse"/>
+
+<xs:complexType name="editApplicant">
+<xs:sequence>
+<xs:element name="applicantXML" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editApplicantResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeApplicant">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeApplicantResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findApplicant">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findApplicantResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:applicant" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="applicant">
+<xs:sequence>
+<xs:element name="clientCategory" type="xs:string" minOccurs="0"/>
+<xs:element name="dateTimeStamp" type="xs:string" minOccurs="0"/>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+<xs:element name="idNumber" type="xs:long"/>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="surname" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getStatus">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getStatusResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findAllApplicants">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllApplicantsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:applicant" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createApplicant">
+<xs:sequence>
+<xs:element name="applicantXML" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createApplicantResponse">
+<xs:sequence/>
+</xs:complexType>
+</xs:schema>

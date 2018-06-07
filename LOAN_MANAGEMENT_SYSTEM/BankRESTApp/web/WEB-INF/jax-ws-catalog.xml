@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/UNIONSOAPWebService/UNIONSOAPWebService?WSDL" uri="wsdl/localhost_8080/UNIONSOAPWebService/UNIONSOAPWebService.wsdl"/>
+    <system systemId="http://localhost:8080/UNIONSOAPWebService/UNIONSOAPWebService?xsd=1" uri="wsdl/localhost_8080/UNIONSOAPWebService/UNIONSOAPWebService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/TransformerSOAPService/TransformerSOAPService?WSDL" uri="wsdl/localhost_8080/TransformerSOAPService/TransformerSOAPService.wsdl"/>
+    <system systemId="http://localhost:8080/TransformerSOAPService/TransformerSOAPService?xsd=1" uri="wsdl/localhost_8080/TransformerSOAPService/TransformerSOAPService.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/BankTransformerWebService/BankTransformerWebService?WSDL" uri="wsdl/localhost_8080/BankTransformerWebService/BankTransformerWebService.wsdl"/>
+    <system systemId="http://localhost:8080/BankTransformerWebService/BankTransformerWebService?xsd=1" uri="wsdl/localhost_8080/BankTransformerWebService/BankTransformerWebService.xsd_1.xsd"/>
+</catalog>
