@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://Lesego:8080/UnionBankValidatorSOAP/UnionBankValidatorSOAP?WSDL" uri="wsdl/Lesego_8080/UnionBankValidatorSOAP/UnionBankValidatorSOAP.wsdl"/>
+    <system systemId="http://Lesego:8080/UnionBankValidatorSOAP/UnionBankValidatorSOAP?xsd=1" uri="wsdl/Lesego_8080/UnionBankValidatorSOAP/UnionBankValidatorSOAP.xsd_1.xsd"/>
+</catalog>
