@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.1-b419 (branches/2.3.1.x-7937; 2014-08-04T08:11:03+0000) JAXWS-RI/2.2.10-b140803.1500 JAXWS-API/2.2.11 JAXB-RI/2.2.10-b140802.1033 JAXB-API/2.2.12-b140109.1041 svn-revision#unknown. --><xs:schema xmlns:tns="http://jws.union.ac.za/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://jws.union.ac.za/">
+
+<xs:element name="Exception" type="tns:Exception"/>
+
+<xs:element name="clientt" type="tns:clientt"/>
+
+<xs:element name="createClient" type="tns:createClient"/>
+
+<xs:element name="createClientResponse" type="tns:createClientResponse"/>
+
+<xs:element name="editClient" type="tns:editClient"/>
+
+<xs:element name="editClientResponse" type="tns:editClientResponse"/>
+
+<xs:element name="findAllClients" type="tns:findAllClients"/>
+
+<xs:element name="findAllClientsResponse" type="tns:findAllClientsResponse"/>
+
+<xs:element name="findClient" type="tns:findClient"/>
+
+<xs:element name="findClientResponse" type="tns:findClientResponse"/>
+
+<xs:element name="removeClient" type="tns:removeClient"/>
+
+<xs:element name="removeClientResponse" type="tns:removeClientResponse"/>
+
+<xs:complexType name="createClient">
+<xs:sequence>
+<xs:element name="clienttXml" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="createClientResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="Exception">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeClient">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="removeClientResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="editClient">
+<xs:sequence>
+<xs:element name="clienttXml" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="editClientResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllClients">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="findAllClientsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:clientt" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="clientt">
+<xs:sequence>
+<xs:element name="firstname" type="xs:string" minOccurs="0"/>
+<xs:element name="idno" type="xs:long" minOccurs="0"/>
+<xs:element name="lastname" type="xs:string" minOccurs="0"/>
+<xs:element name="status" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findClient">
+<xs:sequence>
+<xs:element name="id" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="findClientResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:clientt" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
